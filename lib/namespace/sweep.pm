@@ -15,7 +15,7 @@ use B::Hooks::EndOfScope   0.09 'on_scope_end';
 use Package::Stash         0.33;
 
 $namespace::sweep::AUTHORITY = 'cpan:FRIEDO';
-$namespace::sweep::VERSION   = 0.1;
+$namespace::sweep::VERSION   = 0.002;
 
 sub import { 
     my ( $class, %args ) = @_;
@@ -52,7 +52,17 @@ sub import {
         my $st = $cleanee . '::';
         my $ps = Package::Stash->new( $cleanee );
 
-        my $sweep = sub { $ps->remove_symbol( '&' . $_[0] ) };
+        my $sweep = sub { 
+            # stolen from namespace::clean
+            my @symbols = map {
+                my $name = $_ . $_[0];
+                my $def = $ps->get_symbol( $name );
+                defined($def) ? [$name, $def] : ()
+            } '$', '@', '%', '';
+
+            $ps->remove_glob( $_[0] );
+            $ps->add_symbol( @$_ ) for @symbols;
+        };
 
         my %keep;
         if ( $cleanee->can( 'meta' ) ) { 
@@ -73,11 +83,8 @@ sub import {
             next if $pkg eq $cleanee;                       # defined in the cleanee pkg
             next if $pkg eq 'overload' and $name eq 'nil';  # magic overload method
 
-            print "$sym --> $pkg :: $name\n";
             $sweep->( $sym );
         } 
-
-        printf "scope end %s\n", $cleanee;
     };
 
 }
@@ -94,6 +101,10 @@ __END__
 =head1 NAME
 
 namespace::sweep - Sweep up imported subs in your classes
+
+=head1 VERSION
+
+Version 0.002
 
 =head1 SYNOPSIS
 
