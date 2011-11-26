@@ -1,4 +1,7 @@
 package namespace::sweep;
+{
+  $namespace::sweep::VERSION = '0.003';
+}
 
 # ABSTRACT: Sweep up imported subs in your classes
 
@@ -15,7 +18,6 @@ use B::Hooks::EndOfScope   0.09 'on_scope_end';
 use Package::Stash         0.33;
 
 $namespace::sweep::AUTHORITY = 'cpan:FRIEDO';
-$namespace::sweep::VERSION   = 0.002;
 
 sub import { 
     my ( $class, %args ) = @_;
@@ -92,11 +94,9 @@ sub import {
 1;
 
 
-__END__
+
 
 =pod
-
-=encoding utf-8
 
 =head1 NAME
 
@@ -104,7 +104,7 @@ namespace::sweep - Sweep up imported subs in your classes
 
 =head1 VERSION
 
-Version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -131,6 +131,8 @@ methods on your objects. This pragma will delete imported functions from your cl
 symbol table, thereby ensuring that your interface as as you specified it. However,
 code inside your module will still be able to use the imported functions without any 
 problems.
+
+=encoding utf-8
 
 =head1 ARGUMENTS
 
@@ -208,6 +210,20 @@ This software is copyright (c) 2011 by Mike Friedman.
 This is free software; you can redistribute it and/or modify it under the same terms as
 the Perl 5 programming language system itself.
 
+=head1 AUTHOR
+
+Mike Friedman <friedo@friedo.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Mike Friedman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+
 
