@@ -7,16 +7,9 @@ README
 dist.ini
 lib/namespace/sweep.pm
 t/ns_a_also.t
-t/ns_a_also.t~
 t/ns_a_basic.t
-t/ns_a_basic.t~
 t/ns_a_cleanee.t
-t/ns_a_cleanee.t~
 t/ns_a_matchclean.t
-t/ns_a_matchclean.t~
-t/ns_a_role.t
-t/ns_a_role.t~
 t/overload.t
-t/overload.t~
 t/pkg.t
-t/pkg.t~
+xt/ns_a_role.t

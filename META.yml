@@ -3,15 +3,13 @@ abstract: 'Sweep up imported subs in your classes'
 author:
   - 'Mike Friedman <friedo@friedo.com>'
 build_requires:
-  Moose::Role: 0
   Sub::Name: 0
   Test::More: 0
-  namespace::autoclean: 0
   overload: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112150'
+generated_by: 'Dist::Zilla version 4.300018, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -29,4 +27,4 @@ requires:
   warnings: 0
 resources:
   repository: git://github.com/friedo/perl-namespace-sweep.git
-version: 0.003
+version: 0.004

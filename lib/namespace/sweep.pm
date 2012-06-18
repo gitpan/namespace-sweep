@@ -1,6 +1,6 @@
 package namespace::sweep;
 {
-  $namespace::sweep::VERSION = '0.003';
+  $namespace::sweep::VERSION = '0.004';
 }
 
 # ABSTRACT: Sweep up imported subs in your classes
@@ -104,7 +104,7 @@ namespace::sweep - Sweep up imported subs in your classes
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -128,7 +128,7 @@ version 0.003
 Because Perl methods are just regular subroutines, it's difficult to tell what's a method
 and what's just an imported function. As a result, imported functions can be called as
 methods on your objects. This pragma will delete imported functions from your class's
-symbol table, thereby ensuring that your interface as as you specified it. However,
+symbol table, thereby ensuring that your interface is as you specified it. However,
 code inside your module will still be able to use the imported functions without any 
 problems.
 
