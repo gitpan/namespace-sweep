@@ -1,6 +1,6 @@
 package namespace::sweep;
 {
-  $namespace::sweep::VERSION = '0.004';
+  $namespace::sweep::VERSION = '0.005';
 }
 
 # ABSTRACT: Sweep up imported subs in your classes
@@ -67,9 +67,15 @@ sub import {
         };
 
         my %keep;
-        if ( $cleanee->can( 'meta' ) ) { 
+        my $class_of_cm = UNIVERSAL::can('Class::MOP', 'can')  && 'Class::MOP'->can('class_of');
+        my $class_of_mu = UNIVERSAL::can('Mouse::Util', 'can') && 'Mouse::Util'->can('class_of');
+        if ( $class_of_cm or $class_of_mu ) { 
             # look for moose-ish composed methods
-            my $meta = $cleanee->meta;
+            my ($meta) =
+                grep { !!$_ }
+                map  { $cleanee->$_ }
+                grep { defined $_ }
+                ($class_of_cm, $class_of_mu);
             if ( blessed $meta && $meta->can( 'get_all_method_names' ) ) { 
                 %keep = map { $_ => 1 } $meta->get_all_method_names;
             }
@@ -93,8 +99,7 @@ sub import {
 
 1;
 
-
-
+__END__
 
 =pod
 
@@ -104,7 +109,7 @@ namespace::sweep - Sweep up imported subs in your classes
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
@@ -195,6 +200,8 @@ This is an early release and there are bound to be a few hiccups along the way.
 
 Thanks Florian Ragwitz and Tomas Doran for writing and maintaining namespace::autoclean. 
 
+Thanks to Toby Inkster for submitting some better code for finding C<meta> objects.
+
 =head1 SEE ALSO
 
 L<namespace::autoclean>, L<namespace::clean>, L<overload>
@@ -222,8 +229,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-
-

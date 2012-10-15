@@ -4,7 +4,7 @@
       "Mike Friedman <friedo@friedo.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300018, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300026, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -34,6 +34,9 @@
       },
       "test" : {
          "requires" : {
+            "Moo" : "0",
+            "Moose" : "0",
+            "Mouse" : "0",
             "Sub::Name" : "0",
             "Test::More" : "0",
             "overload" : "0"
@@ -48,6 +51,6 @@
          "web" : "http://github.com/friedo/perl-namespace-sweep"
       }
    },
-   "version" : "0.004"
+   "version" : "0.005"
 }
 
