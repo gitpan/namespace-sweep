@@ -3,9 +3,6 @@ abstract: 'Sweep up imported subs in your classes'
 author:
   - 'Mike Friedman <friedo@friedo.com>'
 build_requires:
-  Moo: 0
-  Moose: 0
-  Mouse: 0
   Sub::Name: 0
   Test::More: 0
   overload: 0
@@ -30,4 +27,4 @@ requires:
   warnings: 0
 resources:
   repository: git://github.com/friedo/perl-namespace-sweep.git
-version: 0.005
+version: 0.006

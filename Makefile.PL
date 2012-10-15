@@ -12,9 +12,6 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Sweep up imported subs in your classes",
   "AUTHOR" => "Mike Friedman <friedo\@friedo.com>",
   "BUILD_REQUIRES" => {
-    "Moo" => 0,
-    "Moose" => 0,
-    "Mouse" => 0,
     "Sub::Name" => 0,
     "Test::More" => 0,
     "overload" => 0
@@ -37,7 +34,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.005",
+  "VERSION" => "0.006",
   "test" => {
     "TESTS" => "t/*.t"
   }

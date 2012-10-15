@@ -1,6 +1,6 @@
 package namespace::sweep;
 {
-  $namespace::sweep::VERSION = '0.005';
+  $namespace::sweep::VERSION = '0.006';
 }
 
 # ABSTRACT: Sweep up imported subs in your classes
@@ -109,7 +109,7 @@ namespace::sweep - Sweep up imported subs in your classes
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -205,17 +205,6 @@ Thanks to Toby Inkster for submitting some better code for finding C<meta> objec
 =head1 SEE ALSO
 
 L<namespace::autoclean>, L<namespace::clean>, L<overload>
-
-=head1 AUTHOR
-
-Mike Friedman <friedo@friedo.com>
-
-=head1 COPYRIGHT AND LICENSE 
-
-This software is copyright (c) 2011 by Mike Friedman.
-
-This is free software; you can redistribute it and/or modify it under the same terms as
-the Perl 5 programming language system itself.
 
 =head1 AUTHOR
 
